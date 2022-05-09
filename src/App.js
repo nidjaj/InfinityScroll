@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Heading } from './components/Heading';
 import { UnsplashImage } from './components/UnsplashImage';
 import { Loader } from './components/Loader';
+import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import imagesList from './components/ImageGallery'
 
 // Style
 const GlobalStyle = createGlobalStyle`
@@ -37,12 +37,25 @@ function App() {
     fetchImages();
   }, [])
 
-  const fetchImages = (count = 8) => {
+  const fetchImages = (count = 10) => {
     imagesList.map((img)=>(
       setImage((prev)=>[...prev, img])
     ))
   }
- 
+  console.log(images);
+  const imagesList= [
+    {id:1,src: "./images/img1.jpg"},
+    {id:2,src: "./images/img2.jpg"},
+    {id:3,src: "./images/img3.jpg"},
+    {id:4,src: "./images/img4.jpg"},
+    {id:5,src: "./images/img5.jpg"},
+    {id:6,src: "./images/img1.jpg"},
+    {id:7,src: "./images/img2.jpg"},
+    {id:8,src: "./images/img3.jpg"},
+    {id:9,src: "./images/img4.jpg"},
+    {id:10,src: "./images/img5.jpg"}
+    ];
+
   return (
     <div>
       <Heading />
